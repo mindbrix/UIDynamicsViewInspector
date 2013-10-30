@@ -8,7 +8,11 @@
 
 #import "DIViewController.h"
 
+#import "DIContext.h"
+
 @interface DIViewController ()
+
+@property( nonatomic, strong ) DIContext *diContext;
 
 @end
 
@@ -18,6 +22,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [ super viewWillAppear:animated ];
+    
+    
+    if( ! self.diContext )
+    {
+        self.diContext = [[ DIContext alloc ] initWithView:self.view ];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning

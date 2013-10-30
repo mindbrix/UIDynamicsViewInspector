@@ -10,6 +10,7 @@
 
 @interface DIContext ()
 
+@property( nonatomic, strong ) UIDynamicAnimator *animator;
 @property( nonatomic, strong ) UIView *view;
 
 @end
@@ -26,6 +27,16 @@
     if( self )
     {
         self.view = view;
+        
+        self.animator = [[ UIDynamicAnimator alloc ] initWithReferenceView:view ];
+        
+        UIGravityBehavior *gravity = [[ UIGravityBehavior alloc ] initWithItems:self.view.subviews ];
+        UICollisionBehavior *collision = [[ UICollisionBehavior alloc ] initWithItems:self.view.subviews ];
+        collision.translatesReferenceBoundsIntoBoundary = YES;
+        collision.collisionMode = UICollisionBehaviorModeEverything;
+        
+        [ self.animator addBehavior:gravity ];
+        [ self.animator addBehavior:collision ];
     }
     
     return self;
