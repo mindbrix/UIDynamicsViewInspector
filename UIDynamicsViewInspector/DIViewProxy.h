@@ -1,5 +1,5 @@
 //
-//  DIContext.h
+//  DIViewProxy.h
 //  Dynamics Inspector Demo
 //
 //  Created by Nigel Barber on 30/10/2013.
@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DIContext : NSObject
-
+@interface DIViewProxy : NSObject<UIDynamicItem>
 
 -(instancetype)initWithView:(UIView *)view;
 

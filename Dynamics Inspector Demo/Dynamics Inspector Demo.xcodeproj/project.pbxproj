@@ -23,6 +23,7 @@
 		A6635D5E18212FBE00DD4FC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6635D5C18212FBE00DD4FC8 /* InfoPlist.strings */; };
 		A6635D6018212FBE00DD4FC8 /* Dynamics_Inspector_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6635D5F18212FBE00DD4FC8 /* Dynamics_Inspector_DemoTests.m */; };
 		A6635D6C1821314D00DD4FC8 /* DIContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A6635D6B1821314D00DD4FC8 /* DIContext.m */; };
+		A6635D6F1821333E00DD4FC8 /* DIViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6635D6E1821333E00DD4FC8 /* DIViewProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		A6635D5F18212FBE00DD4FC8 /* Dynamics_Inspector_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dynamics_Inspector_DemoTests.m; sourceTree = "<group>"; };
 		A6635D6A1821314D00DD4FC8 /* DIContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIContext.h; sourceTree = "<group>"; };
 		A6635D6B1821314D00DD4FC8 /* DIContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIContext.m; sourceTree = "<group>"; };
+		A6635D6D1821333E00DD4FC8 /* DIViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIViewProxy.h; sourceTree = "<group>"; };
+		A6635D6E1821333E00DD4FC8 /* DIViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIViewProxy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 			children = (
 				A6635D6A1821314D00DD4FC8 /* DIContext.h */,
 				A6635D6B1821314D00DD4FC8 /* DIContext.m */,
+				A6635D6D1821333E00DD4FC8 /* DIViewProxy.h */,
+				A6635D6E1821333E00DD4FC8 /* DIViewProxy.m */,
 			);
 			name = UIDynamicsViewInspector;
 			path = ../../UIDynamicsViewInspector;
@@ -269,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6635D6C1821314D00DD4FC8 /* DIContext.m in Sources */,
+				A6635D6F1821333E00DD4FC8 /* DIViewProxy.m in Sources */,
 				A6635D3E18212FBD00DD4FC8 /* main.m in Sources */,
 				A6635D4B18212FBD00DD4FC8 /* DIViewController.m in Sources */,
 				A6635D4218212FBD00DD4FC8 /* DIAppDelegate.m in Sources */,
