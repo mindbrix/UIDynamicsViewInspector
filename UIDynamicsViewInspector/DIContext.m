@@ -112,9 +112,13 @@ CGFloat UIInterfaceOrientationAngleOfOrientation(UIInterfaceOrientation orientat
     
     for( UIView *view in views )
     {
-        DIViewProxy *proxy = [[ DIViewProxy alloc ] initWithView:view ];
+        if(( view.bounds.size.width != 0.0f ) && ( view.bounds.size.height != 0.0f ))
+        {
+            DIViewProxy *proxy = [[ DIViewProxy alloc ] initWithView:view ];
+            
+            [ proxies addObject:proxy ];
+        }
         
-        [ proxies addObject:proxy ];
     }
     
     return [ NSArray arrayWithArray:proxies ];
