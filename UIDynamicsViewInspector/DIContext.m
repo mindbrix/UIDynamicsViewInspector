@@ -32,8 +32,8 @@
     {
         self.view = view;
         
-        //self.proxies = [ self proxiesForViews:self.view.subviews ];
-        
+        self.proxies = [ self proxiesForViews:self.view.subviews ];
+        //self.proxies = [ self recursiveProxiesForViews:self.view.subviews ];
         
         if( self.proxies )
         {
@@ -60,10 +60,14 @@
         
         collision.collisionMode = UICollisionBehaviorModeEverything;
         
+        UIDynamicItemBehavior *bounce = [[ UIDynamicItemBehavior alloc ] initWithItems:views ];
+        bounce.elasticity = 1.0f;
+        
         [ self.animator addBehavior:self.gravity ];
         [ self.animator addBehavior:collision ];
+        [ self.animator addBehavior:bounce ];
         
-        //[[ NSNotificationCenter defaultCenter ] addObserver:self selector:@selector(didRotate:)name:UIDeviceOrientationDidChangeNotification object:nil ];
+        [[ NSNotificationCenter defaultCenter ] addObserver:self selector:@selector(didRotate:)name:UIDeviceOrientationDidChangeNotification object:nil ];
     }
     
     return self;
@@ -116,4 +120,29 @@ CGFloat UIInterfaceOrientationAngleOfOrientation(UIInterfaceOrientation orientat
     return [ NSArray arrayWithArray:proxies ];
 }
 
+
+-(NSArray *)recursiveProxiesForViews:(NSArray *)views
+{
+    NSMutableArray *proxies = [ NSMutableArray array ];
+    
+    [ self recursivelyInitProxiesForViews:views intoArray:proxies ];
+    
+    return [ NSArray arrayWithArray:proxies ];
+}
+
+-(void)recursivelyInitProxiesForViews:(NSArray *)views intoArray:(NSMutableArray *)array
+{
+    for( UIView *view in views )
+    {
+        if(( view.bounds.size.width != 0.0f ) && ( view.bounds.size.height != 0.0f ))
+        {
+            DIViewProxy *proxy = [[ DIViewProxy alloc ] initWithView:view ];
+            
+            [ array addObject:proxy ];
+        }
+        
+        
+        [ self recursivelyInitProxiesForViews:view.subviews intoArray:array ];
+    }
+}
 @end
