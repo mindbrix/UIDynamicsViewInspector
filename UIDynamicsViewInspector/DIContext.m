@@ -78,7 +78,7 @@
 
 -(void)didRotate:(NSNotification *)notification
 {
-    self.gravity.angle = UIInterfaceOrientationAngleOfOrientation([ UIApplication sharedApplication ].statusBarOrientation );
+    //self.gravity.angle = UIInterfaceOrientationAngleOfOrientation([ UIApplication sharedApplication ].statusBarOrientation );
 }
 
 
@@ -89,16 +89,16 @@ CGFloat UIInterfaceOrientationAngleOfOrientation(UIInterfaceOrientation orientat
     switch (orientation)
     {
         case UIInterfaceOrientationPortraitUpsideDown:
-            angle = M_PI;
+            angle = 0;
             break;
         case UIInterfaceOrientationLandscapeLeft:
-            angle = -M_PI_2;
+            angle = -M_PI;
             break;
         case UIInterfaceOrientationLandscapeRight:
-            angle = M_PI_2;
+            angle = 0;
             break;
         default:
-            angle = 0.0;
+            angle = M_PI_2;
             break;
     }
     
